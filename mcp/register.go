@@ -34,4 +34,5 @@ func NewDeps(httpClient *http.Client, userAgent string, timeout time.Duration) *
 func Register(server *sdkmcp.Server, deps *Deps) {
 	registerSearchHotels(server, deps)
 	registerFindNearbyAmenities(server, deps)
+	registerGetWeatherForecast(server, deps)
 }
