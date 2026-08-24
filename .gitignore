@@ -1,0 +1,6 @@
+/hospitality-scout
+*.exe
+*.test
+*.out
+.idea
+.claude
