@@ -58,7 +58,7 @@ func (c *NominatimClient) Geocode(ctx context.Context, query string) (Coordinate
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return Coordinates{}, fmt.Errorf("nominatim geocode failed: unexpected status %d", resp.StatusCode)
+		return Coordinates{}, fmt.Errorf("nominatim geocode failed: %s", classifyStatus(resp.StatusCode))
 	}
 
 	var results []nominatimResult

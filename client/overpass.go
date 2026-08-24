@@ -91,7 +91,7 @@ func (c *OverpassClient) query(ctx context.Context, ql string) (*overpassRespons
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("overpass query failed: unexpected status %d", resp.StatusCode)
+		return nil, fmt.Errorf("overpass query failed: %s", classifyStatus(resp.StatusCode))
 	}
 
 	var out overpassResponse

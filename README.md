@@ -66,3 +66,8 @@ and upstream failures are worded so they're easy to tell apart:
   that legitimately found nothing — are prefixed `upstream error: ...` and
   wrap the underlying client error via `%w`, so the original failure (which
   API, what status code) is preserved and traceable.
+- Upstream failures also say whether retrying is likely to help, since the
+  agent driving this server only ever sees the error text and has to decide
+  what to do next from it: timeouts and 5xx responses are worded as safe to
+  retry, 429s note that a short wait may help, and other 4xx responses say
+  retrying with the same input will not help.

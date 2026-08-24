@@ -65,7 +65,7 @@ func (c *OpenMeteoClient) GetForecast(ctx context.Context, lat, lon float64, day
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("open-meteo forecast failed: unexpected status %d", resp.StatusCode)
+		return nil, fmt.Errorf("open-meteo forecast failed: %s", classifyStatus(resp.StatusCode))
 	}
 
 	var out openMeteoResponse
