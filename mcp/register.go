@@ -33,4 +33,5 @@ func NewDeps(httpClient *http.Client, userAgent string, timeout time.Duration) *
 // Register adds all three tools to server.
 func Register(server *sdkmcp.Server, deps *Deps) {
 	registerSearchHotels(server, deps)
+	registerFindNearbyAmenities(server, deps)
 }
