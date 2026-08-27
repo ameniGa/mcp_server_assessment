@@ -113,8 +113,6 @@ func registerFindNearbyAmenities(server *sdkmcp.Server, d *Deps) {
 		lonSchema.Maximum = new(float64(180))
 	}
 
-	fmt.Printf("%v\n", inSchema.Properties)
-
 	sdkmcp.AddTool(server, &sdkmcp.Tool{
 		Name:        "find_nearby_amenities",
 		Description: "Find restaurants, museums, or cafes near a specific latitude/longitude point (e.g. a hotel) by querying OpenStreetMap Overpass within a 1km radius. amenity_type must be exactly one of \"restaurant\", \"museum\", or \"cafe\" (validated against the input schema before this tool runs — any other value is rejected with a schema error, not a tool call). Returns an empty list (a normal, successful result) if nothing is found within the radius — that's not an error. A tool error means the coordinates were invalid or an upstream service failed.",
